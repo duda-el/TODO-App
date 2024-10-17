@@ -1,0 +1,103 @@
+<div class="task-container">
+  <aside class="sidebar">
+    <ul>
+      <li>
+        <a
+          href="#"
+          (click)="filterTasks('All')"
+          [ngClass]="{
+            'active-category': selectedCategory === 'All',
+            'inactive-category': selectedCategory !== 'All'
+          }"
+        >
+          All
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          (click)="filterTasks('Groceries')"
+          [ngClass]="{
+            'active-category': selectedCategory === 'Groceries',
+            'inactive-category': selectedCategory !== 'Groceries'
+          }"
+        >
+          Groceries
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          (click)="filterTasks('College')"
+          [ngClass]="{
+            'active-category': selectedCategory === 'College',
+            'inactive-category': selectedCategory !== 'College'
+          }"
+        >
+          College
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          (click)="filterTasks('Payments')"
+          [ngClass]="{
+            'active-category': selectedCategory === 'Payments',
+            'inactive-category': selectedCategory !== 'Payments'
+          }"
+        >
+          Payments
+        </a>
+      </li>
+    </ul>
+  </aside>
+  
+  <main class="task-list">
+    <header>
+      <h2>{{ selectedCategory }} Tasks</h2>
+      <div class="task-list-child">
+        <input
+          type="text"
+          [(ngModel)]="newTask"
+          placeholder="Add a new task inside '{{ selectedCategory }}' category"
+        />
+        <button (click)="addTask()" class="addTaskBtn">Add Task</button>
+      </div>
+    </header>
+
+    <ul>
+      <li *ngFor="let task of filteredTasks">
+        <label>
+          <input type="checkbox" [(ngModel)]="task.completed" />
+          {{ task.name }}
+          <span class="tag {{ task.category | lowercase }}">{{
+            task.category
+          }}</span>
+        </label>
+
+        <!-- Conditionally display delete button when checkbox is active (task.completed) -->
+        <button
+          *ngIf="task.completed"
+          class="delete-btn"
+          (click)="deleteTask(task)"
+        >
+          <svg
+            width="16"
+            height="18"
+            viewBox="0 0 16 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="trash-icon"
+          >
+            <path
+              d="M5.66667 3.33333L6.25 1H9.75L10.3333 3.33333M15 3.33333H2.16667L3.33333 17.3333H12.6667L13.8333 3.33333H1H15ZM8 6.83333V13.8333V6.83333ZM10.9167 6.83333L10.3333 13.8333L10.9167 6.83333ZM5.08333 6.83333L5.66667 13.8333L5.08333 6.83333Z"
+              stroke="#FF0000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </main>
+</div>

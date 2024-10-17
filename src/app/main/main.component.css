@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.task-container {
+  display: flex;
+  height: 100vh;
+  font-family: "Lato";
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #fff;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar ul {
+  list-style-type: none;
+}
+
+.sidebar li {
+  margin: 15px 0;
+}
+
+.sidebar a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.task-list {
+  flex-grow: 1;
+  padding: 30px;
+}
+
+.task-list header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.task-list-child {
+  display: flex;
+  gap: 20px;
+}
+
+.task-list h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.task-list input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  color: black;
+  margin-top: 5px;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+}
+
+ul li label {
+  display: flex;
+  align-items: center;
+}
+
+
+ul li input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  border: 2px solid #ea5959;
+  border-radius: 5px;
+  margin-right: 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+
+ul li input[type="checkbox"]:checked {
+  background-color: #ea5959;
+  border: 2px solid #ea5959;
+}
+
+
+ul li input[type="checkbox"]:checked::after {
+  content: "✔";
+  display: block;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+}
+
+.tag {
+  background-color: #ea5959;
+  color: white;
+  padding: 6px 15px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.tag.groceries {
+  background-color: #ea5959;
+}
+
+.tag.payments {
+  background-color: #ea5959;
+}
+
+.tag.college {
+  background-color: #ea5959;
+}
+
+.tag.uncategorized {
+  background-color: #ea5959;
+}
+
+
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.trash-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.delete-btn:hover .trash-icon {
+  opacity: 1;
+}
+
+.addTaskBtn {
+  background-color: #ea5959;
+  color: white;
+  padding: 6px 15px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+}
+
+
+.active-category {
+  color: #ea5959;
+  font-weight: bold;
+}
+
+
+.inactive-category {
+  color: black;
+}
